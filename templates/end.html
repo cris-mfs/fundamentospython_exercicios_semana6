@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Parabéns!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <h1>Venceste todos os desafios!</h1>
+    <img src="{{ url_for('static', filename='tesouro.jpg') }}" alt="Tesouro">
+    <p>Deixa uma mensagem para os futuros aventureiros!</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p style="color: {{ 'green' if category == 'success' else 'red' }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{ url_for('end') }}">
+        {{ form.hidden_tag() }}
+        {{ form.mensagem() }}
+        {{ form.submit() }}
+    </form>
+</body>
+</html>

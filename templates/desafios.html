@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <h1>Questionário! Resposde correto às três perguntas em baixo para avançares!</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p style="color: {{ 'red' if category == 'error' }}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <p>Pergunta #1: Qual é a fruta cujo nome é também uma cor?</p>
+    <img src="{{ url_for('static', filename='laranja.png') }}" alt="Laranja">
+
+    <form action="{{ url_for('desafios') }}" method="POST">
+        <label for="resposta1">Pergunta 1:</label>
+        <input type="text" id="resposta1" name="resposta1">
+        <br>
+        <br>
+    <p>Pergunta #2: Qual a cidade que tem o monumento da imagem em baixo?</p>
+    <img src="{{ url_for('static', filename='belem.jpg') }}" alt="Lisboa">
+        <br>
+        <label for="resposta2">Pergunta 2:</label>
+        <input type="text" id="resposta2" name="resposta2">
+        <br>
+        <br>
+    <p>Pergunta #3: Qual o maior clube do mundo?</p>
+    <img src="{{ url_for('static', filename='benfica.png') }}" alt="benfica">
+        <br>
+        <label for="resposta3">Pergunta 3:</label>
+        <input type="text" id="resposta3" name="resposta3">
+        <br>
+        <br>
+        <input type="submit" value="Submeter as respostas">
+    </form>
+</body>
+</html>

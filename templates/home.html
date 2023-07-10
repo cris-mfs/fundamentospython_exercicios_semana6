@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+
+<body>
+    <h1>Bem-vindo! Nas próximas páginas vai haver um conjunto de desafios!</h1>
+    <h1>Estás pronto?</h1>
+
+    <form action="{{ url_for('desafios') }}">
+        <input type = "submit" value="Clica para continuar">
+    </form>
+</body>
+</html>
