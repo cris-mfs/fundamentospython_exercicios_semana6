@@ -18,11 +18,11 @@ def desafios():
         request.form.get("resposta1"),
         request.form.get("resposta2"),
         request.form.get("resposta3")
-        ]
+        ] # só se dev efechar o formulário no html no final de terem aparecido todas as caixas de resposta
         if respostas_dadas == respostas:
                 return redirect(url_for('end'))
         else:
-            flash('Erraste pelo menos uma das perguntas. Tenta novamente.', 'error') 
+            flash('Não acertaste em todas as perguntas. Tenta novamente.', 'error') 
     return render_template('desafios.html')
 
 @app.route("/end", methods=['GET', 'POST'])
