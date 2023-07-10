@@ -4,7 +4,7 @@ from forms import RespostaForm, MensagemForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'segredo' # chave que tem que existir para ele poder utilizar formulários
 
-respostas = ['laranja', 'lisboa', 'benfica']
+respostas = ['José Saramago', 'Reykjavik', '18']
 mensagens = []
 
 @app.route("/", methods=['GET', 'POST'])
